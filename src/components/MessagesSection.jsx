@@ -77,15 +77,20 @@ Have a wonderful birthday, Shiru!`,
     iconColor: "#A8D5BA",
     accent: "#F0FFF5",
     border: "#B8E8C8",
-    label: "A wish for you",
+    label: "To the One Who Makes Everything Feel Okay",
     avatar: "./assets/humans/sayuj.png",
-    text: `Happy Birthday, dear Shiru!
+    text: `Happiest Birthday, Siru! ❤️
 
-You are one of the most cheerful souls I know — truly everyone's dear and darling, the one who brightens up every room she walks into. You love and take care of everyone around you: your siblings, your parents, your friends, your colleagues. It's something really special, and I admire you for this.
+You are my "kei hudaina" to my "dar lagyo". No matter the situation, you always make me feel like there is someone who has my back. Somehow, you make every difficult situation seem simpler and easier to get through.
 
-It makes me so proud to see you living and thriving in Australia and doing so well in life. On your special day, I wish you even more success, more happiness, and all the beautiful things you truly deserve.
+It's hard to believe that the girl who used to come home from college and go straight to bed at my age is already 30! Time has truly flown by.
 
-Have a wonderful birthday, Shiru!`,
+Thank you for being such an amazing sister, for your endless support, and for always being there when I need you. I am so grateful to have you in my life.
+
+Wishing you the happiest birthday, Siru. May this new chapter bring you good health, happiness, success, and countless beautiful memories. Always stay as joyful, caring, and cheerful as you are.
+
+Love you always.
+- Your Brother`,
   },
 ];
 
