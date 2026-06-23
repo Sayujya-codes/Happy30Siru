@@ -9,6 +9,20 @@ import ScrollReveal from "./ScrollReveal";
 
 const messages = [
   {
+    id: 5,
+    icon: <CelebrationIcon sx={{ fontSize: 28 }} />,
+    iconColor: "#85C1E9",
+    accent: "#F0F8FF",
+    border: "#AED6F1",
+    label: "Cheers to you!",
+    avatar: "./assets/humans/friend5.png",
+    text: `Happy 30th Birthday dearest xori!
+
+It seems like only yesterday you were holding the paper and pencil and making holes and fanning the paper and laughing your heart out loud, with the paper dancing in the wind. Today, we find ourselves admiring you more for your love and care and resolve. We truly appreciate your fiery dedication to learn and excel and prove your essence, mostly with ease and always on a positive note.
+
+As we celebrate this special day, our wish is simple: May you continue to grow into the life that always finds joy in the journey as much as the destination, and always trusting your strength has no match!`,
+  },
+  {
     id: 1,
     icon: <FavoriteIcon sx={{ fontSize: 28 }} />,
     iconColor: "#E8A0BF",
@@ -16,10 +30,14 @@ const messages = [
     border: "#F5C6D8",
     label: "With love from Didi",
     avatar: "./assets/humans/didi.png",
-    text: `My dearest siru, you know it already because I've told you many times- you are a light of my life. 
-    Being able to love you makes me feel so blessed. 
-    I wish life gives you the best of everything. I wish the universe fuels your spark to 
-    shine brighter and brighter. Always there for you, didi`,
+    text: `My dearest Siru,
+
+You know it already because I've told you many times — you are a light of my life. Being able to love you makes me feel so blessed.
+
+I wish life gives you the best of everything. I wish the universe fuels your spark to shine brighter and brighter.
+
+Always there for you,
+Didi`,
   },
   {
     id: 2,
@@ -29,15 +47,13 @@ const messages = [
     border: "#D9C9E8",
     label: "30 Special",
     avatar: "./assets/humans/rocky.png",
-    text: `Happy
-30th Birthday Bae, Thank you for being so.
-amazing person inside out. Every moment we shared, everyday we spent together during this year has been truely amazing & holds a special place
-in
-my life.
-I love
-you
-to Moon & back bae.
-Wish you a happy birthday & amazing year ahead. Let's create more memorie In your 30's together.`,
+    text: `Happy 30th Birthday Bae!
+
+Thank you for being such an amazing person inside out. Every moment we shared, every day we spent together this year has been truly amazing and holds a special place in my life.
+
+I love you to the Moon and back, Bae.
+
+Wishing you a happy birthday and an amazing year ahead. Let's create more memories in your 30s together.`,
   },
   {
     id: 3,
@@ -48,8 +64,11 @@ Wish you a happy birthday & amazing year ahead. Let's create more memorie In you
     label: "Wishing you a joyous years ahead!",
     avatar: "./assets/humans/sujan.png",
     text: `Happy Birthday, dear Shiru!
-You are one of the most cheerful souls I know, truly everyone's dear and darling, the one who brightens up every room she walks into. You love and take care of everyone around you: your siblings, your parents, your friends, your colleagues. It's something really special, and I admire you for this. 
+
+You are one of the most cheerful souls I know — truly everyone's dear and darling, the one who brightens up every room she walks into. You love and take care of everyone around you: your siblings, your parents, your friends, your colleagues. It's something really special, and I admire you for this.
+
 It makes me so proud to see you living and thriving in Australia and doing so well in life. On your special day, I wish you even more success, more happiness, and all the beautiful things you truly deserve.
+
 Have a wonderful birthday, Shiru!`,
   },
   {
@@ -61,31 +80,12 @@ Have a wonderful birthday, Shiru!`,
     label: "A wish for you",
     avatar: "./assets/humans/sayuj.png",
     text: `Happy Birthday, dear Shiru!
-You are one of the most cheerful souls I know, truly everyone's dear and darling, the one who brightens up every room she walks into. You love and take care of everyone around you: your siblings, your parents, your friends, your colleagues. It's something really special, and I admire you for this. 
+
+You are one of the most cheerful souls I know — truly everyone's dear and darling, the one who brightens up every room she walks into. You love and take care of everyone around you: your siblings, your parents, your friends, your colleagues. It's something really special, and I admire you for this.
+
 It makes me so proud to see you living and thriving in Australia and doing so well in life. On your special day, I wish you even more success, more happiness, and all the beautiful things you truly deserve.
+
 Have a wonderful birthday, Shiru!`,
-  },
-  {
-    id: 5,
-    icon: <CelebrationIcon sx={{ fontSize: 28 }} />,
-    iconColor: "#85C1E9",
-    accent: "#F0F8FF",
-    border: "#AED6F1",
-    label: "Cheers to you!",
-    avatar: "./assets/humans/friend5.png", // 👈 replace with the right photo
-    text: `Happy 30th Birthday dearest xori!
-
-It seems like only yesterday you were holding the paper and pencil and
-making holes and fanning the paper and laughing your heart out loud,
-with the paper dancing in the wind. Today, we find ourselves, admiring
-you more for your love and care and resolve.  We truly appreciate your
-fiery dedication to learn and excel and prove your essence, mostly
-with ease and always on a positive note.
-
-As we celebrate this special day, our wish is simple: May you continue
-to grow into the life that always finds joy in the journey as much as
-the destination and always trusting your strength has no match!
-`,
   },
 ];
 
@@ -140,10 +140,10 @@ export default function MessagesSection() {
         }}
       >
         {messages.map((msg, i) => {
-          const isLast = i === messages.length - 1;
+          const isFirst = i === 0;
 
           return (
-            <Box key={msg.id} sx={isLast ? { gridColumn: "1 / -1" } : {}}>
+            <Box key={msg.id} sx={isFirst ? { gridColumn: "1 / -1" } : {}}>
               <ScrollReveal
                 type={i % 2 === 0 ? "fadeUp" : "scaleIn"}
                 delay={i * 120}
@@ -164,8 +164,8 @@ export default function MessagesSection() {
                     },
                   }}
                 >
-                  {/* Avatar badge — hidden for last card */}
-                  {!isLast && (
+                  {/* Avatar badge — hidden for first card */}
+                  {!isFirst && (
                     <Avatar
                       src={msg.avatar}
                       alt={msg.label}
@@ -184,11 +184,10 @@ export default function MessagesSection() {
 
                   <CardContent
                     sx={{
-                      pt: isLast ? 0 : 5.5,
-                      pb: isLast ? "0 !important" : 3,
-                      px: isLast ? 0 : 3,
-                      // Wide layout for last card: image on left, text on right
-                      ...(isLast && {
+                      pt: isFirst ? 0 : 5.5,
+                      pb: isFirst ? "0 !important" : 3,
+                      px: isFirst ? 0 : 3,
+                      ...(isFirst && {
                         display: "flex",
                         flexDirection: { xs: "column", sm: "row" },
                         gap: 0,
@@ -196,8 +195,8 @@ export default function MessagesSection() {
                       }),
                     }}
                   >
-                    {/* Square image — last card only */}
-                    {isLast && (
+                    {/* Square image — first card only */}
+                    {isFirst && (
                       <Box
                         sx={{
                           flexShrink: 0,
@@ -222,8 +221,8 @@ export default function MessagesSection() {
                       </Box>
                     )}
 
-                    {/* Divider for wide card (vertical on desktop) */}
-                    {isLast && (
+                    {/* Vertical divider — first card desktop only */}
+                    {isFirst && (
                       <Box
                         sx={{
                           display: { xs: "none", sm: "block" },
@@ -237,7 +236,7 @@ export default function MessagesSection() {
                     )}
 
                     {/* Label block — normal cards only */}
-                    {!isLast && (
+                    {!isFirst && (
                       <Box
                         sx={{
                           display: "flex",
@@ -264,7 +263,7 @@ export default function MessagesSection() {
                     {/* Message text */}
                     <Box
                       sx={
-                        isLast
+                        isFirst
                           ? {
                               p: 3,
                               display: "flex",
@@ -274,7 +273,7 @@ export default function MessagesSection() {
                           : {}
                       }
                     >
-                      {isLast && (
+                      {isFirst && (
                         <Box
                           sx={{
                             display: "flex",
@@ -303,6 +302,7 @@ export default function MessagesSection() {
                           color: "#7A5C7A",
                           fontSize: "0.95rem",
                           lineHeight: 1.85,
+                          whiteSpace: "pre-line", // ← key fix for line breaks
                         }}
                       >
                         {msg.text}

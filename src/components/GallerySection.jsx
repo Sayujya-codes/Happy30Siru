@@ -57,7 +57,7 @@ const photos = [
   },
   {
     id: 9,
-    src: "./assets/photo9.jpg",
+    src: "./assets/photo9.png",
     alt: "Photo 9",
     caption: "Caption nine goes here",
   },
@@ -356,7 +356,7 @@ export default function GallerySection() {
                   background: "#1A1020",
                 }}
               >
-                <Typography
+                {/* <Typography
                   sx={{
                     color: "#F5C6D8",
                     fontStyle: "italic",
@@ -364,7 +364,7 @@ export default function GallerySection() {
                   }}
                 >
                   {photos[lightboxIndex].caption}
-                </Typography>
+                </Typography> */}
                 <Typography
                   sx={{ color: "#7A5C7A", fontSize: "0.8rem", mt: 0.5 }}
                 >
