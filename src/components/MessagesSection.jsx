@@ -4,6 +4,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import CelebrationIcon from "@mui/icons-material/Celebration";
 import ScrollReveal from "./ScrollReveal";
 
 const messages = [
@@ -15,7 +16,7 @@ const messages = [
     border: "#F5C6D8",
     label: "With love from Didi",
     avatar: "./assets/humans/didi.png",
-    text: `My dearest siru, you know it already because I’ve told you many times- you are a light of my life. 
+    text: `My dearest siru, you know it already because I've told you many times- you are a light of my life. 
     Being able to love you makes me feel so blessed. 
     I wish life gives you the best of everything. I wish the universe fuels your spark to 
     shine brighter and brighter. Always there for you, didi`,
@@ -45,7 +46,7 @@ Wish you a happy birthday & amazing year ahead. Let's create more memorie In you
     accent: "#FFF8F0",
     border: "#F7D9B8",
     label: "Wishing you a joyous years ahead!",
-    avatar: "./assets/humans/sujan.png", // 👈 replace with this person's photo
+    avatar: "./assets/humans/sujan.png",
     text: `Happy Birthday, dear Shiru!
 You are one of the most cheerful souls I know, truly everyone's dear and darling, the one who brightens up every room she walks into. You love and take care of everyone around you: your siblings, your parents, your friends, your colleagues. It's something really special, and I admire you for this. 
 It makes me so proud to see you living and thriving in Australia and doing so well in life. On your special day, I wish you even more success, more happiness, and all the beautiful things you truly deserve.
@@ -58,11 +59,33 @@ Have a wonderful birthday, Shiru!`,
     accent: "#F0FFF5",
     border: "#B8E8C8",
     label: "A wish for you",
-    avatar: "./assets/humans/sayuj.png", // 👈 replace with this person's photo
+    avatar: "./assets/humans/sayuj.png",
     text: `Happy Birthday, dear Shiru!
 You are one of the most cheerful souls I know, truly everyone's dear and darling, the one who brightens up every room she walks into. You love and take care of everyone around you: your siblings, your parents, your friends, your colleagues. It's something really special, and I admire you for this. 
 It makes me so proud to see you living and thriving in Australia and doing so well in life. On your special day, I wish you even more success, more happiness, and all the beautiful things you truly deserve.
 Have a wonderful birthday, Shiru!`,
+  },
+  {
+    id: 5,
+    icon: <CelebrationIcon sx={{ fontSize: 28 }} />,
+    iconColor: "#85C1E9",
+    accent: "#F0F8FF",
+    border: "#AED6F1",
+    label: "Cheers to you!",
+    avatar: "./assets/humans/friend5.png", // 👈 replace with the right photo
+    text: `Happy 30th Birthday dearest xori!
+
+It seems like only yesterday you were holding the paper and pencil and
+making holes and fanning the paper and laughing your heart out loud,
+with the paper dancing in the wind. Today, we find ourselves, admiring
+you more for your love and care and resolve.  We truly appreciate your
+fiery dedication to learn and excel and prove your essence, mostly
+with ease and always on a positive note.
+
+As we celebrate this special day, our wish is simple: May you continue
+to grow into the life that always finds joy in the journey as much as
+the destination and always trusting your strength has no match!
+`,
   },
 ];
 
@@ -116,78 +139,181 @@ export default function MessagesSection() {
           pt: { xs: 4, sm: 2 },
         }}
       >
-        {messages.map((msg, i) => (
-          <ScrollReveal
-            key={msg.id}
-            type={i % 2 === 0 ? "fadeUp" : "scaleIn"}
-            delay={i * 120}
-          >
-            <Card
-              elevation={0}
-              sx={{
-                borderRadius: 4,
-                border: `1.5px solid ${msg.border}`,
-                background: msg.accent,
-                height: "100%",
-                position: "relative",
-                overflow: "visible",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                "&:hover": {
-                  transform: "translateY(-6px)",
-                  boxShadow: `0 16px 40px ${msg.border}80`,
-                },
-              }}
-            >
-              {/* Avatar badge — shows who the message is from */}
-              <Avatar
-                src={msg.avatar}
-                alt={msg.label}
-                sx={{
-                  position: "absolute",
-                  top: -28,
-                  left: 24,
-                  width: 64,
-                  height: 64,
-                  border: `3px solid #FFFFFF`,
-                  outline: `2px solid ${msg.border}`,
-                  boxShadow: "0 6px 16px rgba(0,0,0,0.12)",
-                }}
-              />
+        {messages.map((msg, i) => {
+          const isLast = i === messages.length - 1;
 
-              <CardContent sx={{ pt: 5.5, pb: 3, px: 3 }}>
-                {/* Label */}
-                <Box
-                  sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}
-                >
-                  <Box sx={{ color: msg.iconColor }}>{msg.icon}</Box>
-                  <Typography
-                    sx={{
-                      fontFamily: "'Playfair Display', serif",
-                      fontWeight: 600,
-                      fontSize: "1rem",
-                      color: "#3D2B3D",
-                      fontStyle: "italic",
-                    }}
-                  >
-                    {msg.label}
-                  </Typography>
-                </Box>
-
-                {/* Message */}
-                <Typography
-                  variant="body1"
+          return (
+            <Box key={msg.id} sx={isLast ? { gridColumn: "1 / -1" } : {}}>
+              <ScrollReveal
+                type={i % 2 === 0 ? "fadeUp" : "scaleIn"}
+                delay={i * 120}
+              >
+                <Card
+                  elevation={0}
                   sx={{
-                    color: "#7A5C7A",
-                    fontSize: "0.95rem",
-                    lineHeight: 1.85,
+                    borderRadius: 4,
+                    border: `1.5px solid ${msg.border}`,
+                    background: msg.accent,
+                    height: "100%",
+                    position: "relative",
+                    overflow: "visible",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    "&:hover": {
+                      transform: "translateY(-6px)",
+                      boxShadow: `0 16px 40px ${msg.border}80`,
+                    },
                   }}
                 >
-                  {msg.text}
-                </Typography>
-              </CardContent>
-            </Card>
-          </ScrollReveal>
-        ))}
+                  {/* Avatar badge — hidden for last card */}
+                  {!isLast && (
+                    <Avatar
+                      src={msg.avatar}
+                      alt={msg.label}
+                      sx={{
+                        position: "absolute",
+                        top: -28,
+                        left: 24,
+                        width: 64,
+                        height: 64,
+                        border: `3px solid #FFFFFF`,
+                        outline: `2px solid ${msg.border}`,
+                        boxShadow: "0 6px 16px rgba(0,0,0,0.12)",
+                      }}
+                    />
+                  )}
+
+                  <CardContent
+                    sx={{
+                      pt: isLast ? 0 : 5.5,
+                      pb: isLast ? "0 !important" : 3,
+                      px: isLast ? 0 : 3,
+                      // Wide layout for last card: image on left, text on right
+                      ...(isLast && {
+                        display: "flex",
+                        flexDirection: { xs: "column", sm: "row" },
+                        gap: 0,
+                        alignItems: "stretch",
+                      }),
+                    }}
+                  >
+                    {/* Square image — last card only */}
+                    {isLast && (
+                      <Box
+                        sx={{
+                          flexShrink: 0,
+                          p: 2,
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Box
+                          component="img"
+                          src="./assets/humans/dadmom.png"
+                          alt="From Mom & Dad"
+                          sx={{
+                            width: { xs: "100%", sm: 200 },
+                            height: { xs: 200, sm: 200 },
+                            objectFit: "cover",
+                            borderRadius: 3,
+                            display: "block",
+                            border: `2px solid ${msg.border}`,
+                          }}
+                        />
+                      </Box>
+                    )}
+
+                    {/* Divider for wide card (vertical on desktop) */}
+                    {isLast && (
+                      <Box
+                        sx={{
+                          display: { xs: "none", sm: "block" },
+                          width: "1.5px",
+                          alignSelf: "stretch",
+                          my: 2,
+                          background: msg.border,
+                          flexShrink: 0,
+                        }}
+                      />
+                    )}
+
+                    {/* Label block — normal cards only */}
+                    {!isLast && (
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 1,
+                          mb: 2,
+                        }}
+                      >
+                        <Box sx={{ color: msg.iconColor }}>{msg.icon}</Box>
+                        <Typography
+                          sx={{
+                            fontFamily: "'Playfair Display', serif",
+                            fontWeight: 600,
+                            fontSize: "1rem",
+                            color: "#3D2B3D",
+                            fontStyle: "italic",
+                          }}
+                        >
+                          {msg.label}
+                        </Typography>
+                      </Box>
+                    )}
+
+                    {/* Message text */}
+                    <Box
+                      sx={
+                        isLast
+                          ? {
+                              p: 3,
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                            }
+                          : {}
+                      }
+                    >
+                      {isLast && (
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1,
+                            mb: 1.5,
+                          }}
+                        >
+                          <Box sx={{ color: msg.iconColor }}>{msg.icon}</Box>
+                          <Typography
+                            sx={{
+                              fontFamily: "'Playfair Display', serif",
+                              fontWeight: 600,
+                              fontSize: "1rem",
+                              color: "#3D2B3D",
+                              fontStyle: "italic",
+                            }}
+                          >
+                            {msg.label}
+                          </Typography>
+                        </Box>
+                      )}
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          color: "#7A5C7A",
+                          fontSize: "0.95rem",
+                          lineHeight: 1.85,
+                        }}
+                      >
+                        {msg.text}
+                      </Typography>
+                    </Box>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
+            </Box>
+          );
+        })}
       </Box>
     </Box>
   );

@@ -21,7 +21,7 @@ const photos = [
   },
   {
     id: 3,
-    src: "./assets/photo3.jpg",
+    src: "./assets/photo3.png",
     alt: "Photo 3",
     caption: "Caption three goes here",
   },
@@ -112,7 +112,7 @@ const photos = [
   },
   {
     id: 18,
-    src: "./assets/photo18.jpg",
+    src: "./assets/photo18.jpeg",
     alt: "Photo 18",
     caption: "Caption eighteen goes here",
   },
