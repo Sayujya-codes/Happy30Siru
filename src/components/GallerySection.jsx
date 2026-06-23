@@ -6,8 +6,6 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import ScrollReveal from "./ScrollReveal";
 
 // ─── IMAGE CONFIG ──────────────────────────────────────────────────────────────
-// Replace these src paths with actual image paths under assets/
-// e.g. src: "./assets/photo1.jpg"   or   src: "/assets/photo1.jpg"
 const photos = [
   {
     id: 1,
@@ -81,9 +79,58 @@ const photos = [
     alt: "Photo 12",
     caption: "Caption twelve goes here",
   },
+  // Added 8 more image slots below:
+  {
+    id: 13,
+    src: "./assets/photo13.jpg",
+    alt: "Photo 13",
+    caption: "Caption thirteen goes here",
+  },
+  {
+    id: 14,
+    src: "./assets/photo14.jpg",
+    alt: "Photo 14",
+    caption: "Caption fourteen goes here",
+  },
+  {
+    id: 15,
+    src: "./assets/photo15.jpg",
+    alt: "Photo 15",
+    caption: "Caption fifteen goes here",
+  },
+  {
+    id: 16,
+    src: "./assets/photo16.jpg",
+    alt: "Photo 16",
+    caption: "Caption sixteen goes here",
+  },
+  {
+    id: 17,
+    src: "./assets/photo17.jpg",
+    alt: "Photo 17",
+    caption: "Caption seventeen goes here",
+  },
+  {
+    id: 18,
+    src: "./assets/photo18.jpg",
+    alt: "Photo 18",
+    caption: "Caption eighteen goes here",
+  },
+  {
+    id: 19,
+    src: "./assets/photo19.jpg",
+    alt: "Photo 19",
+    caption: "Caption nineteen goes here",
+  },
+  {
+    id: 20,
+    src: "./assets/photo20.jpg",
+    alt: "Photo 20",
+    caption: "Caption twenty goes here",
+  },
 ];
 
-// Varied grid spans for an organic mosaic feel
+// Varied grid spans for an organic mosaic feel (Extended for 20 images)
 const spanConfig = [
   { colSpan: 2, rowSpan: 2 }, // large
   { colSpan: 1, rowSpan: 1 },
@@ -97,6 +144,15 @@ const spanConfig = [
   { colSpan: 1, rowSpan: 1 },
   { colSpan: 1, rowSpan: 1 },
   { colSpan: 2, rowSpan: 2 },
+  // Extended configuration for the 8 new photos:
+  { colSpan: 1, rowSpan: 1 },
+  { colSpan: 1, rowSpan: 2 },
+  { colSpan: 2, rowSpan: 1 },
+  { colSpan: 1, rowSpan: 1 },
+  { colSpan: 1, rowSpan: 1 },
+  { colSpan: 2, rowSpan: 2 }, // Another anchor large item
+  { colSpan: 1, rowSpan: 1 },
+  { colSpan: 1, rowSpan: 1 },
 ];
 
 function PhotoCard({ photo, span, index, onClick }) {
@@ -156,7 +212,6 @@ function PhotoCard({ photo, span, index, onClick }) {
           transition: "transform 0.5s ease",
         }}
         onError={(e) => {
-          // Fallback placeholder if image missing
           e.target.style.display = "none";
           e.target.parentElement.style.background = `linear-gradient(135deg, #F5C6D8 0%, #C3AED6 100%)`;
         }}
@@ -176,18 +231,7 @@ function PhotoCard({ photo, span, index, onClick }) {
           alignItems: "flex-end",
           p: 2,
         }}
-      >
-        <Typography
-          sx={{
-            color: "#FFFFFF",
-            fontSize: "0.85rem",
-            fontFamily: "'Lato', sans-serif",
-            fontStyle: "italic",
-          }}
-        >
-          {photo.caption}
-        </Typography>
-      </Box>
+      />
     </Box>
   );
 }

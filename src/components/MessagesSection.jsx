@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Card, CardContent } from "@mui/material";
+import { Box, Typography, Card, CardContent, Avatar } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
@@ -13,11 +13,12 @@ const messages = [
     iconColor: "#E8A0BF",
     accent: "#FFF0F5",
     border: "#F5C6D8",
-    label: "With love",
-    emoji: "💖",
-    text: `[Your heartfelt message goes here. You can write about how much Siru means to you, 
-    your favorite memories together, and why she makes every room brighter just by being in it. 
-    Edit this text to make it personal and warm.]`,
+    label: "With love from Didi",
+    avatar: "./assets/humans/didi.png",
+    text: `My dearest siru, you know it already because I’ve told you many times- you are a light of my life. 
+    Being able to love you makes me feel so blessed. 
+    I wish life gives you the best of everything. I wish the universe fuels your spark to 
+    shine brighter and brighter. Always there for you, didi`,
   },
   {
     id: 2,
@@ -25,11 +26,17 @@ const messages = [
     iconColor: "#C3AED6",
     accent: "#F5F0FF",
     border: "#D9C9E8",
-    label: "30 looks good on you",
-    emoji: "✨",
-    text: `[Write about this milestone — turning 30 is something worth celebrating big. 
-    Tell Siru what you admire about her, how she has grown, and what you hope this beautiful 
-    decade brings her. Replace this with your own words.]`,
+    label: "30 Special",
+    avatar: "./assets/humans/rocky.png",
+    text: `Happy
+30th Birthday Bae, Thank you for being so.
+amazing person inside out. Every moment we shared, everyday we spent together during this year has been truely amazing & holds a special place
+in
+my life.
+I love
+you
+to Moon & back bae.
+Wish you a happy birthday & amazing year ahead. Let's create more memorie In your 30's together.`,
   },
   {
     id: 3,
@@ -37,11 +44,12 @@ const messages = [
     iconColor: "#F7C59F",
     accent: "#FFF8F0",
     border: "#F7D9B8",
-    label: "A funny one 😄",
-    emoji: "🎉",
-    text: `[Maybe this is the place for an inside joke, a funny memory, or a lighthearted 
-    note that will make Siru laugh out loud. Keep it playful and full of your shared humor. 
-    Make it something only the two of you would understand.]`,
+    label: "Wishing you a joyous years ahead!",
+    avatar: "./assets/humans/sujan.png", // 👈 replace with this person's photo
+    text: `Happy Birthday, dear Shiru!
+You are one of the most cheerful souls I know, truly everyone's dear and darling, the one who brightens up every room she walks into. You love and take care of everyone around you: your siblings, your parents, your friends, your colleagues. It's something really special, and I admire you for this. 
+It makes me so proud to see you living and thriving in Australia and doing so well in life. On your special day, I wish you even more success, more happiness, and all the beautiful things you truly deserve.
+Have a wonderful birthday, Shiru!`,
   },
   {
     id: 4,
@@ -50,10 +58,11 @@ const messages = [
     accent: "#F0FFF5",
     border: "#B8E8C8",
     label: "A wish for you",
-    emoji: "🌸",
-    text: `[Close with a beautiful wish — for the year ahead, for the decade to come, 
-    or for life in general. This could be a quote you love, a blessing, or simply your 
-    deepest hope for Siru's happiness. Make it something she'll want to read again and again.]`,
+    avatar: "./assets/humans/sayuj.png", // 👈 replace with this person's photo
+    text: `Happy Birthday, dear Shiru!
+You are one of the most cheerful souls I know, truly everyone's dear and darling, the one who brightens up every room she walks into. You love and take care of everyone around you: your siblings, your parents, your friends, your colleagues. It's something really special, and I admire you for this. 
+It makes me so proud to see you living and thriving in Australia and doing so well in life. On your special day, I wish you even more success, more happiness, and all the beautiful things you truly deserve.
+Have a wonderful birthday, Shiru!`,
   },
 ];
 
@@ -100,9 +109,11 @@ export default function MessagesSection() {
         sx={{
           display: "grid",
           gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
-          gap: 3,
+          columnGap: 3,
+          rowGap: 6,
           maxWidth: 900,
           mx: "auto",
+          pt: { xs: 4, sm: 2 },
         }}
       >
         {messages.map((msg, i) => (
@@ -127,30 +138,27 @@ export default function MessagesSection() {
                 },
               }}
             >
-              {/* Emoji badge */}
-              <Box
+              {/* Avatar badge — shows who the message is from */}
+              <Avatar
+                src={msg.avatar}
+                alt={msg.label}
                 sx={{
                   position: "absolute",
-                  top: -16,
+                  top: -28,
                   left: 24,
-                  width: 40,
-                  height: 40,
-                  borderRadius: "50%",
-                  background: "#FFFFFF",
-                  border: `2px solid ${msg.border}`,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "1.2rem",
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+                  width: 64,
+                  height: 64,
+                  border: `3px solid #FFFFFF`,
+                  outline: `2px solid ${msg.border}`,
+                  boxShadow: "0 6px 16px rgba(0,0,0,0.12)",
                 }}
-              >
-                {msg.emoji}
-              </Box>
+              />
 
-              <CardContent sx={{ pt: 4, pb: 3, px: 3 }}>
+              <CardContent sx={{ pt: 5.5, pb: 3, px: 3 }}>
                 {/* Label */}
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}>
+                <Box
+                  sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}
+                >
                   <Box sx={{ color: msg.iconColor }}>{msg.icon}</Box>
                   <Typography
                     sx={{
